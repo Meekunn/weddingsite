@@ -1,0 +1,36 @@
+.hamburger {
+	position: relative;
+	width: inherit;
+	height: 2px;
+	border-radius: 2px;
+	background: #ffffff;
+	transition: 0.3s ease all;
+}
+
+.hamburger::before {
+	position: absolute;
+	content: "";
+	width: 12px;
+	height: inherit;
+	border-radius: inherit;
+	background: #ffffff;
+	transition: width 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+		transform 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transform: translateY(-8px) translateX(8px) rotate(180deg);
+	left: 0;
+	right: 0;
+}
+
+.hamburger::after {
+	position: absolute;
+	content: "";
+	width: 12px;
+	height: inherit;
+	border-radius: inherit;
+	background: currentColor;
+	transition: width 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+		transform 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transform: translateY(8px) translateX(3px) rotate(180deg);
+	left: 0;
+	right: 0;
+}
