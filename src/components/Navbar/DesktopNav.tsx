@@ -2,15 +2,14 @@ import { Flex, Box, Stack, Link } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import "./active_link.scss";
 
-const DesktopNav = () => {
+const DesktopNav = ({ isScrolled }: INavbar) => {
 	return (
-		// const linkColor = useColorModeValue('gray.600', 'gray.200');
-		// const linkHoverColor = useColorModeValue('gray.800', 'white');
 		<Stack direction={"row"} spacing={4} px={4} h="100%">
 			<Flex>
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
+					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
 					px={8}
 					_hover={{
 						fontWeight: 600,
@@ -27,12 +26,13 @@ const DesktopNav = () => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
+					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
 					px={8}
 					_hover={{
 						fontWeight: 600,
 					}}
 					activeClass="active"
-					to="home"
+					to="how"
 					spy={true}
 					smooth={true}
 					duration={500}
@@ -43,12 +43,13 @@ const DesktopNav = () => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
+					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
 					px={8}
 					_hover={{
 						fontWeight: 600,
 					}}
 					activeClass="active"
-					to="home"
+					to="program"
 					spy={true}
 					smooth={true}
 					duration={500}
@@ -59,12 +60,13 @@ const DesktopNav = () => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
+					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
 					px={8}
 					_hover={{
 						fontWeight: 600,
 					}}
 					activeClass="active"
-					to="home"
+					to="contact"
 					spy={true}
 					smooth={true}
 					duration={500}
