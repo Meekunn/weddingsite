@@ -23,9 +23,8 @@ const Navbar = () => {
 	}, []);
 
 	return (
-		<Box position="fixed" w="100%" zIndex={"2000"} bg={isScrolled ? "#fffdf9" : "transparent"}>
+		<Box position="fixed" w="100%" zIndex={"2000"}>
 			<Flex
-				bg="transparent"
 				p={4}
 				px={6}
 				align={"center"}
@@ -33,6 +32,7 @@ const Navbar = () => {
 				borderBottom={1}
 				borderColor={isScrolled ? "brand.100" : "transparent"}
 				borderStyle={"solid"}
+				bg={isScrolled ? "#fffdf9" : "transparent"}
 			>
 				<Flex flex={{ base: 1 }} justify={{ base: "flex-start", md: "space-between" }} align="center">
 					<Heading
