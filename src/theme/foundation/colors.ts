@@ -4,6 +4,7 @@ const colors = {
 		200: "#F8EEE0", //oldlace
 		300: "#30D5C8", //turquoise1
 		400: "#4BE7DA", //turquoise2
+		500: "#ffcc33", //sunglow
 	},
 };
 
