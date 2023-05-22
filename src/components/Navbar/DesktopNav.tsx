@@ -5,12 +5,12 @@ import "./active_link.scss";
 const DesktopNav = ({ isScrolled }: INavbar) => {
 	return (
 		<Stack direction={"row"} spacing={4} px={4} h="100%">
-			<Flex>
+			<Flex align="center" justify="space-around">
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
 					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
-					px={8}
+					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
 					}}
@@ -27,7 +27,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					as={ScrollLink}
 					textDecoration={"none !important"}
 					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
-					px={8}
+					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
 					}}
@@ -44,7 +44,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					as={ScrollLink}
 					textDecoration={"none !important"}
 					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
-					px={8}
+					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
 					}}
@@ -61,7 +61,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					as={ScrollLink}
 					textDecoration={"none !important"}
 					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
-					px={8}
+					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
 					}}
