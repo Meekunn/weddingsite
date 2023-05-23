@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HomeSection from "@/components/Home";
 import HowItStarted from "@/components/HowItStarted";
 import Proposal from "@/components/Proposal";
+import OrderOfProgram from "@/components/OrderOfProgram";
 
 export default function Home() {
 	return (
@@ -11,6 +12,7 @@ export default function Home() {
 			<HomeSection />
 			<HowItStarted />
 			<Proposal />
+			<OrderOfProgram />
 		</>
 	);
 }

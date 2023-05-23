@@ -3,7 +3,6 @@ const styles = {
 		body: {
 			bg: "#fffdf9",
 			color: "#2d3a4a",
-			fontFamily: "var(--font-poppins)",
 		},
 	},
 };

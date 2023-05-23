@@ -12,7 +12,7 @@ const style = {
 
 const Proposal = () => {
 	return (
-		<Stack sx={style} p={8}>
+		<Stack sx={style} p={8} position={"relative"}>
 			<Flex direction="column" gap={6} align="center" p={8}>
 				<Box
 					bg="#ffffff"
@@ -40,7 +40,7 @@ const Proposal = () => {
 					</Text>
 				</Flex>
 			</Flex>
-			<Image src={flower2.src} position={"absolute"} bottom={0} left={0} />
+			<Image src={flower2.src} position={"absolute"} bottom={0} left={0} display={{ base: "none", md: "block" }} />
 		</Stack>
 	);
 };

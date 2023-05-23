@@ -1,0 +1,8 @@
+.program_list::before {
+	content: url(../../assets/resized_list.png);
+	height: 30px;
+	position: absolute;
+	left: -15px;
+	top: 15px;
+	width: 30px;
+}
