@@ -1,10 +1,12 @@
-import { useDisclosure, Box, Flex, IconButton, useBreakpointValue, Heading, Slide } from "@chakra-ui/react";
+import { Box, Flex, IconButton, useBreakpointValue, Heading } from "@chakra-ui/react";
 import Hamburger from "../Hamburger";
 import { GrClose } from "react-icons/gr";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-import { slideStyle } from "./style";
+import whiteLogo from "../../assets/white_logo.png";
+import blackLogo from "../../assets/black_logo.png";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
 	// const { isOpen, onToggle } = useDisclosure();
@@ -35,12 +37,13 @@ const Navbar = () => {
 				bg={isScrolled ? "#fffdf9" : "transparent"}
 			>
 				<Flex flex={{ base: 1 }} justify={{ base: "flex-start", md: "space-between" }} align="center">
-					<Heading
+					<Image src={isScrolled ? blackLogo : whiteLogo} height={isScrolled ? 50 : 60} alt="Wedding Logo" />
+					{/* <Heading
 						color={isScrolled ? "#2d3a4a" : "#fffdf9"}
 						textAlign={useBreakpointValue({ base: "center", md: "left" })}
 					>
 						A&K
-					</Heading>
+					</Heading> */}
 					<Flex display={{ base: "none", md: "flex" }} align="center" gap={{ md: 2, lg: 4, xl: 6 }} ml={10}>
 						<DesktopNav isScrolled={isScrolled} />
 					</Flex>

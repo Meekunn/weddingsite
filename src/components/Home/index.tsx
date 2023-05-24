@@ -1,8 +1,9 @@
-import { Box, Heading, Stack, Text, Flex } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Flex, Image } from "@chakra-ui/react";
 import { GiSelfLove } from "react-icons/gi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { keyframes } from "@emotion/react";
 import homeStyle from "./style";
+import flowerPattern from "../../assets/light_flower_pattern.svg";
 
 const HomeSection = () => {
 	const nextSectionAnim = keyframes`
@@ -37,6 +38,7 @@ const HomeSection = () => {
 					<Heading as="h1" fontSize={{ base: "5xl", md: "6xl", xl: "7xl" }} letterSpacing={"wide"}>
 						Ayomikun & Kolade
 					</Heading>
+					<Image src={flowerPattern.src} w="250px" />
 					<Text fontSize={"xl"}> are getting married on</Text>
 					<Text fontSize={"xl"}>01.07.2023</Text>
 				</Flex>
