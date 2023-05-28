@@ -4,9 +4,9 @@ import flowerPattern from "../../assets/design.svg";
 import placeholder from "../../assets/placeholder.jpg";
 import flower1 from "../../assets/flower.png";
 
-const HowItStarted = () => {
+const TheCouple = () => {
 	return (
-		<Flex id="how" p={8} direction={"column"} gap={"4.5rem"} position={"relative"}>
+		<Flex id="couple" p={8} direction={"column"} gap={"4.5rem"} position={"relative"}>
 			<Flex direction={"column"} gap={2} pt={4} align={"center"}>
 				<Heading as="h2" fontSize={"5xl"}>
 					The Couple
@@ -81,4 +81,4 @@ const HowItStarted = () => {
 	);
 };
 
-export default HowItStarted;
+export default TheCouple;

@@ -143,15 +143,15 @@ const OrderOfProgram = () => {
 				</Flex>
 			</Stack>
 			<Image src={flower3.src} position={"absolute"} bottom={0} right={0} display={{ base: "none", md: "block" }} />
-			<Stack gap={6} borderTop={1} borderStyle={"solid"} borderTopColor={"#F8EEE0"}>
+			<Stack gap={12} borderTop={1} borderStyle={"solid"} borderTopColor={"#F8EEE0"} alignItems={"center"}>
 				<Flex direction={"column"} gap={2} pt={4} align={"center"}>
 					<Heading as="h2" fontSize={"5xl"} textAlign={"center"}>
 						Special Thanks
 					</Heading>
 					<Image src={flowerPattern.src} w="200px" />
 				</Flex>
-				<Flex direction="column" px={4}>
-					<Text fontSize={"lg"} textAlign={"center"}>
+				<Flex direction="column" px={4} w={"80%"}>
+					<Text fontSize={"lg"} textAlign={"center"} px={6}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero possimus amet sapiente. Laudantium eveniet aut
 						pariatur quas autem maxime tempore odio, quam omnis possimus, aperiam neque accusantium hic expedita ullam.
 					</Text>

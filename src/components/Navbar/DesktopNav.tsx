@@ -18,6 +18,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					to="home"
 					spy={true}
 					smooth={true}
+					fontWeight={isScrolled ? "medium" : "semibold"}
 					duration={500}
 					className="navlinks"
 				>
@@ -32,13 +33,14 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 						fontWeight: 600,
 					}}
 					activeClass="active"
-					to="how"
+					to="couple"
 					spy={true}
 					smooth={true}
 					duration={500}
+					fontWeight={isScrolled ? "medium" : "semibold"}
 					className="navlinks"
 				>
-					How It Started
+					Couple
 				</Link>
 				<Link
 					as={ScrollLink}
@@ -53,9 +55,27 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
+					fontWeight={isScrolled ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Order of Program
+				</Link>
+				<Link
+					as={ScrollLink}
+					textDecoration={"none !important"}
+					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					_hover={{
+						fontWeight: 600,
+					}}
+					activeClass="active"
+					to="date"
+					spy={true}
+					smooth={true}
+					duration={500}
+					fontWeight={isScrolled ? "medium" : "semibold"}
+					className="navlinks"
+				>
+					Dates
 				</Link>
 				<Link
 					as={ScrollLink}
@@ -70,6 +90,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
+					fontWeight={isScrolled ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Contact

@@ -35,7 +35,7 @@ const HomeSection = () => {
 				pt={14}
 			>
 				<Flex gap={4} direction={"column"} align={"center"}>
-					<Heading as="h1" fontSize={{ base: "5xl", md: "6xl", xl: "7xl" }} letterSpacing={"wide"}>
+					<Heading as="h1" fontSize={{ base: "5xl", md: "6xl", xl: "7xl" }} letterSpacing={"wide"} textAlign={"center"}>
 						Ayomikun & Kolade
 					</Heading>
 					<Image src={flowerPattern.src} w="250px" />

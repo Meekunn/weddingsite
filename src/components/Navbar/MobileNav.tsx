@@ -60,13 +60,13 @@ const MobileNav = ({ isScrolled, isOpen, setIsOpen }: IMobileNavbar) => {
 						fontWeight: 600,
 					}}
 					activeClass="active"
-					to="how"
+					to="couple"
 					spy={true}
 					smooth={true}
 					duration={500}
 					className="navlinks"
 				>
-					How It Started
+					Couple
 				</Link>
 				<Link
 					as={ScrollLink}
@@ -83,6 +83,22 @@ const MobileNav = ({ isScrolled, isOpen, setIsOpen }: IMobileNavbar) => {
 					className="navlinks"
 				>
 					Order of Program
+				</Link>
+				<Link
+					as={ScrollLink}
+					textDecoration={"none !important"}
+					color={"#2d3a4a"}
+					_hover={{
+						fontWeight: 600,
+					}}
+					activeClass="active"
+					to="dates"
+					spy={true}
+					smooth={true}
+					duration={500}
+					className="navlinks"
+				>
+					Dates
 				</Link>
 				<Link
 					as={ScrollLink}
