@@ -26,7 +26,7 @@ const HomeSection = () => {
 				className="image.overlay"
 				h="100vh"
 				w={"100%"}
-				backgroundColor="rgb(0 0 0 / 10%)"
+				backgroundColor="rgb(0 0 0 / 57%)"
 				justify={"center"}
 				align={"center"}
 				color={"#fffdf9"}

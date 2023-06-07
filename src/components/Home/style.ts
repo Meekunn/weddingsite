@@ -1,4 +1,4 @@
-import backgroundImage from "../../assets/background.jpg";
+import backgroundImage from "../../assets/color_new_bg.jpg";
 
 const homeStyle = {
 	backgroundPosition: "center",

@@ -14,8 +14,8 @@ const Contact = () => {
 					<Image src={flowerPattern.src} w="200px" />
 				</Flex>
 				<Text fontSize="lg" textAlign="center" p={4}>
-					Having loving family and friends in our lives is the best gift of all. To make reservations or get more
-					information, please contact:
+					Having loving family and friends in our lives is the best gift of all. To make reservations or get more information,
+					please contact:
 				</Text>
 			</Flex>
 			<Flex gap={6} flexWrap="wrap" justify="center">
@@ -30,7 +30,9 @@ const Contact = () => {
 					<Box p={3} bg={"brand.100"} borderRadius={"50%"} display="flex" alignItems="center">
 						<Icon as={HiPhone} w={6} h={6} color="#2d3a4a" />
 					</Box>
-					<Text>Dotun: 07031974579</Text>
+					<Text>
+						<span style={{ fontWeight: "700" }}>Dotun:</span> 07031974579
+					</Text>
 				</Link>
 				<Link
 					href="tel:+2347032727011"
@@ -43,16 +45,11 @@ const Contact = () => {
 					<Box p={3} bg={"brand.100"} borderRadius={"50%"} display="flex" alignItems="center">
 						<Icon as={HiPhone} w={6} h={6} color="#2d3a4a" />
 					</Box>
-					<Text>Ife: 07032727011</Text>
+					<Text>
+						<span style={{ fontWeight: "700" }}>Ife:</span> 07032727011
+					</Text>
 				</Link>
-				<Link
-					href="mailto:#"
-					display="flex"
-					flexDirection={"row"}
-					textDecoration={"none !important"}
-					alignItems="center"
-					gap={4}
-				>
+				<Link href="mailto:#" display="flex" flexDirection={"row"} textDecoration={"none !important"} alignItems="center" gap={4}>
 					<Box p={3} bg={"brand.100"} borderRadius={"50%"} display="flex" alignItems="center">
 						<Icon as={MdEmail} w={6} h={6} color="#2d3a4a" />
 					</Box>
