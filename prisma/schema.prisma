@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  name      String?
+  password  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  allocations Allocation[]
+}
+
+model Goodies {
+  id        String    @id @default(uuid())
+  amount      String
+  quantity     Int
+  strategy    String
+  status      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  expiresAt DateTime
+  createdBy String
+  allocations Allocation[]
+}
+
+model Allocation {
+  id        String    @id @default(uuid())
+  goodieId    String
+  goodie      Goodies      @relation(fields: [goodieId], references: [id])
+  amount      String
+  position     Int
+  status      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  expiresAt DateTime
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+}
+
+
