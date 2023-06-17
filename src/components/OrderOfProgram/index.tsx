@@ -7,17 +7,9 @@ import "./order_of_program.scss";
 const OrderOfProgram = () => {
 	return (
 		<Stack p={8} position="relative" id="program">
-			<Stack>
+			<Stack zIndex={10}>
 				<Flex direction="column" gap={3} align="center" p={8}>
-					<Box
-						bg="#ffffff"
-						borderRadius={"50%"}
-						w="55px"
-						h="55px"
-						display="flex"
-						justifyContent={"center"}
-						alignItems={"center"}
-					>
+					<Box bg="#ffffff" borderRadius={"50%"} w="55px" h="55px" display="flex" justifyContent={"center"} alignItems={"center"}>
 						<Icon as={BsBookmarkHeartFill} w={8} h={8} color={"brand.300"} />
 					</Box>
 					<Flex direction={"column"} gap={2} pt={4} align={"center"}>
@@ -142,8 +134,8 @@ const OrderOfProgram = () => {
 					</Flex>
 				</Flex>
 			</Stack>
-			<Image src={flower3.src} position={"absolute"} bottom={0} right={0} display={{ base: "none", md: "block" }} />
-			<Stack gap={12} borderTop={1} borderStyle={"solid"} borderTopColor={"#F8EEE0"} alignItems={"center"}>
+			<Image src={flower3.src} position={"absolute"} right={0} top="40%" />
+			<Stack gap={12} borderTop={1} borderStyle={"solid"} borderTopColor={"#F8EEE0"} alignItems={"center"} zIndex={10}>
 				<Flex direction={"column"} gap={2} pt={4} align={"center"}>
 					<Heading as="h2" fontSize={"5xl"} textAlign={"center"}>
 						Special Thanks
@@ -152,8 +144,8 @@ const OrderOfProgram = () => {
 				</Flex>
 				<Flex direction="column" px={4} w={"80%"}>
 					<Text fontSize={"lg"} textAlign={"center"} px={6}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero possimus amet sapiente. Laudantium eveniet aut
-						pariatur quas autem maxime tempore odio, quam omnis possimus, aperiam neque accusantium hic expedita ullam.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero possimus amet sapiente. Laudantium eveniet aut pariatur
+						quas autem maxime tempore odio, quam omnis possimus, aperiam neque accusantium hic expedita ullam.
 					</Text>
 				</Flex>
 			</Stack>
