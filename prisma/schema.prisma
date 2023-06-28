@@ -6,46 +6,83 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// TODO: Remove email and password
 model User {
-  id        String    @id @default(uuid())
-  email     String    @unique
-  name      String?
-  password  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String       @id @default(uuid())
+  email       String       @unique
+  name        String?
+  password    String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  isDeleted   Boolean      @default(false)
+  deletedAt   DateTime?
   allocations Allocation[]
+  goodies     Goodies[]
+}
+
+enum GOODIES_STRATEGY_ENUM {
+  RANDOM
+  EQUAL
+}
+
+enum GOODIES_STATUS_ENUM {
+  ACTIVE
+  PENDING
+  EXPIRED
 }
 
 model Goodies {
-  id        String    @id @default(uuid())
+  id          String                @id @default(uuid())
   amount      String
-  quantity     Int
-  strategy    String
-  status      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  expiresAt DateTime
-  createdBy String
+  quantity    Int
+  strategy    GOODIES_STRATEGY_ENUM
+  status      GOODIES_STATUS_ENUM
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  expiresAt   DateTime
+  createdBy   String
+  user        User                  @relation(fields: [createdBy], references: [id])
+  isDeleted   Boolean               @default(false)
+  deletedAt   DateTime?
   allocations Allocation[]
 }
 
-model Allocation {
-  id        String    @id @default(uuid())
-  goodieId    String
-  goodie      Goodies      @relation(fields: [goodieId], references: [id])
-  amount      String
-  position     Int
-  status      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  expiresAt DateTime
-  userId    String
-  user      User      @relation(fields: [userId], references: [id])
+enum ALLOCATION_STATUS_ENUM {
+  CLAIMED
+  UNCLAIMED
 }
 
+model Allocation {
+  id             String                 @id @default(uuid())
+  goodieId       String
+  goodie         Goodies                @relation(fields: [goodieId], references: [id])
+  amount         String
+  position       Int
+  status         ALLOCATION_STATUS_ENUM
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+  expiresAt      DateTime
+  isDeleted      Boolean                @default(false)
+  deletedAt      DateTime?
+  createdBy      String
+  user           User                   @relation(fields: [createdBy], references: [id])
+  AllocationUser AllocationUser?
+}
 
+model AllocationUser {
+  id           String     @id @default(uuid())
+  phone        String
+  network      String
+  name         String
+  allocationId String     @unique
+  allocation   Allocation @relation(fields: [allocationId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  isDeleted    Boolean    @default(false)
+  deletedAt    DateTime?
+}
