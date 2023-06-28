@@ -14,15 +14,7 @@ const Proposal = () => {
 	return (
 		<Stack sx={style} p={8} position={"relative"}>
 			<Flex direction="column" gap={6} align="center" p={8}>
-				<Box
-					bg="#ffffff"
-					borderRadius={"50%"}
-					w="40px"
-					h="40px"
-					display="flex"
-					justifyContent={"center"}
-					alignItems={"center"}
-				>
+				<Box bg="#ffffff" borderRadius={"50%"} w="40px" h="40px" display="flex" justifyContent={"center"} alignItems={"center"}>
 					<Icon as={GiCutDiamond} w={8} h={8} color={"brand.300"} />
 				</Box>
 				<Flex direction={"column"} gap={2} pt={4} align={"center"}>
@@ -31,7 +23,7 @@ const Proposal = () => {
 					</Heading>
 					<Image src={flowerPattern.src} w="200px" />
 				</Flex>
-				<Flex direction={"column"} gap={8} w={"70%"}>
+				<Flex direction={"column"} gap={8} w={"70%"} zIndex={10}>
 					<Text textAlign={"center"} fontSize={"xl"}>
 						"I could walk forever and a mile with you. Would you like to walk with me?”
 					</Text>
@@ -40,7 +32,7 @@ const Proposal = () => {
 					</Text>
 				</Flex>
 			</Flex>
-			<Image src={flower2.src} position={"absolute"} bottom={0} left={0} display={{ base: "none", md: "block" }} />
+			<Image src={flower2.src} position={"absolute"} bottom={0} left={0} />
 		</Stack>
 	);
 };

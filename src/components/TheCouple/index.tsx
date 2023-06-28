@@ -36,7 +36,7 @@ const TheCouple = () => {
 								},
 							}}
 						>
-							<Image src={bride} alt={"Bride"} fill priority={true} placeholder="blur" />
+							<Image src={bride} alt={"Bride"} fill priority={true} placeholder="blur" sizes="350px" />
 						</Box>
 						<Heading as="h3" fontSize={"3xl"}>
 							Ayomikun Adeleye
@@ -46,7 +46,7 @@ const TheCouple = () => {
 							for someone with her position.
 						</Text>
 					</Flex>
-					<Flex direction="column" gap={4}>
+					<Flex direction="column" gap={4} zIndex={10}>
 						<Box
 							borderRadius="30px"
 							width="350px"
@@ -58,7 +58,7 @@ const TheCouple = () => {
 								},
 							}}
 						>
-							<Image src={groom} alt={"Bride"} fill priority={true} placeholder="blur" />
+							<Image src={groom} alt={"Bride"} fill priority={true} placeholder="blur" sizes="350px" />
 						</Box>
 						<Heading as="h3" fontSize={"3xl"}>
 							Kolade Adetoyinbo
@@ -69,7 +69,7 @@ const TheCouple = () => {
 						</Text>
 					</Flex>
 				</Flex>
-				<ChakraImage src={flower1.src} position="absolute" bottom={0} right={0} display={{ base: "none", md: "block" }} />
+				<ChakraImage src={flower1.src} position="absolute" bottom={0} right={0} />
 			</Flex>
 		</Flex>
 	);

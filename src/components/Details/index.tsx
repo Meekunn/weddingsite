@@ -2,7 +2,6 @@ import { Stack, Flex, Heading, Image, Icon, Box, Text, Button } from "@chakra-ui
 import flowerPattern from "../../assets/design.svg";
 import { BsCalendarHeart } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
-import AddToCalendar from "react-add-to-calendar";
 
 const Details = () => {
 	return (
