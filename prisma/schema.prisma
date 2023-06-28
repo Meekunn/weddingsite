@@ -8,21 +8,7 @@ generator client {
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
-}
-
-// TODO: Remove email and password
-model User {
-  id          String       @id @default(uuid())
-  email       String       @unique
-  name        String?
-  password    String?
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  isDeleted   Boolean      @default(false)
-  deletedAt   DateTime?
-  allocations Allocation[]
-  goodies     Goodies[]
+  shadowDatabaseUrl = env("DATABASE_URL")
 }
 
 enum GOODIES_STRATEGY_ENUM {
@@ -45,10 +31,6 @@ model Goodies {
   createdAt   DateTime              @default(now())
   updatedAt   DateTime              @updatedAt
   expiresAt   DateTime
-  createdBy   String
-  user        User                  @relation(fields: [createdBy], references: [id])
-  isDeleted   Boolean               @default(false)
-  deletedAt   DateTime?
   allocations Allocation[]
 }
 
@@ -67,22 +49,16 @@ model Allocation {
   createdAt      DateTime               @default(now())
   updatedAt      DateTime               @updatedAt
   expiresAt      DateTime
-  isDeleted      Boolean                @default(false)
-  deletedAt      DateTime?
-  createdBy      String
-  user           User                   @relation(fields: [createdBy], references: [id])
   AllocationUser AllocationUser?
 }
 
 model AllocationUser {
   id           String     @id @default(uuid())
   phone        String
-  network      String
   name         String
   allocationId String     @unique
   allocation   Allocation @relation(fields: [allocationId], references: [id])
+  fw_res       Json?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-  isDeleted    Boolean    @default(false)
-  deletedAt    DateTime?
 }

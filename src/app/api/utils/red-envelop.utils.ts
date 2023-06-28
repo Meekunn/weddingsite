@@ -12,7 +12,6 @@ function replaceDigits(value: number) {
 }
 export function shareRedEnvelope(
     goodieId: string,
-    userId: string,
     strategy: GOODIES_STRATEGY_ENUM,
     amount: number,
     expiresAt?: Date,
@@ -36,7 +35,7 @@ export function shareRedEnvelope(
         amountForEachRecipient = Math.floor(amountForEachRecipient);
 
         for (let i = 0; i < packets; i++) {
-            redEnvelope.push({ amount: String(amountForEachRecipient), goodieId, status: "UNCLAIMED", position: i + 1, expiresAt, createdBy: userId });
+            redEnvelope.push({ amount: String(amountForEachRecipient), goodieId, status: "UNCLAIMED", position: i + 1, expiresAt,  });
         }
 
         return redEnvelope;
@@ -58,11 +57,11 @@ export function shareRedEnvelope(
         finalizedRandomAmount = replaceDigits(finalizedRandomAmount);
         currentBalance -= finalizedRandomAmount;
 
-        redEnvelope.push({ amount: String(finalizedRandomAmount), goodieId, status: "UNCLAIMED", position: i + 1, expiresAt, createdBy: userId });
+        redEnvelope.push({ amount: String(finalizedRandomAmount), goodieId, status: "UNCLAIMED", position: i + 1, expiresAt,  });
     }
 
     currentBalance = Math.round(currentBalance);
-    redEnvelope.push({ amount: String(currentBalance), goodieId, status: "UNCLAIMED", position: redEnvelope.length + 1, expiresAt, createdBy: userId });
+    redEnvelope.push({ amount: String(currentBalance), goodieId, status: "UNCLAIMED", position: redEnvelope.length + 1, expiresAt,  });
 
     return redEnvelope;
 }

@@ -1,12 +1,12 @@
 import { Allocation, Goodies } from "@prisma/client";
-import { prismaService } from "@server/prisma.service";
+import { prisma } from "@server/db";
 import { NextRequest, NextResponse } from "next/server";
 import { shareRedEnvelope } from "../utils/red-envelop.utils";
 import { GoodiesDto, TGoodiesBody } from "./dto";
 
 export async function GET(request: NextRequest) {
     try {
-        const goodies = await prismaService.goodies.findMany({});
+        const goodies = await prisma.goodies.findMany({});
         return NextResponse.json({ data: goodies }, { status: 200 });
     } catch (error: any) {
         console.log(error);
@@ -16,12 +16,15 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
-        const session = request.headers.get("x-u-session");
-        if (!session) {
-            return NextResponse.json({ message: "Access denied, please login to continue" }, { status: 401 });
+        const authCode = request.headers.get("a_cred");
+
+        if (!authCode) {
+            return NextResponse.json({ message: "Not Found" }, { status: 404 });
         }
 
-        const parsedSession: { sub: { _id: string } } = JSON.parse(session);
+        if (authCode !== "123321") {
+            return NextResponse.json({ message: "Not Found" }, { status: 404 });
+        }
 
         const body = GoodiesDto.safeParse(await request.json()) as TZodResponse<TGoodiesBody>;
         if (!body.success) {
@@ -38,21 +41,19 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ message: "Sorry but expiry date must be a future date" }, { status: 400 });
         }
 
-        const newGoodies = await prismaService.$transaction(async (prismaClient): Promise<Goodies> => {
+        const newGoodies = await prisma.$transaction(async (prismaClient): Promise<Goodies> => {
             const newGoodies = await prismaClient.goodies.create({
                 data: {
                     amount: parsedBody.amount,
                     quantity: Number(parsedBody.quantity),
                     expiresAt,
                     strategy: parsedBody.strategy,
-                    status: "ACTIVE",
-                    createdBy: parsedSession.sub._id
+                    status: "ACTIVE"
                 }
             });
 
             const allocation = shareRedEnvelope(
                 newGoodies.id,
-                parsedSession.sub._id,
                 parsedBody.strategy,
                 Number(parsedBody.amount),
                 new Date(parsedBody.expiresAt),
@@ -65,7 +66,6 @@ export async function POST(request: NextRequest) {
         });
 
         if (newGoodies) {
-            prismaService.$disconnect();
             return NextResponse.json({ message: "Goodies created successfully", data: newGoodies }, { status: 201 });
         }
 
