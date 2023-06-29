@@ -10,17 +10,17 @@ import Contact from "@components/Contact";
 import Footer from "@components/Footer";
 
 export default function Home() {
-	return (
-		<>
-			<Navbar />
-			<HomeSection />
-			<TheCouple />
-			<Proposal />
-			<OrderOfProgram />
-			<Details />
-			<Gifts />
-			<Contact />
-			<Footer />
-		</>
-	);
+    return (
+        <>
+            <Navbar />
+            <HomeSection />
+            <TheCouple />
+            <Proposal />
+            <OrderOfProgram />
+            <Details />
+            <Gifts />
+            <Contact />
+            <Footer />
+        </>
+    );
 }
