@@ -35,7 +35,7 @@ const Proposal = () => {
 					<Image src={ProposalImage} alt={"Groom"} sizes="350px" />
 				</Box>
 				<Flex direction={"column"} gap={8} zIndex={10}>
-					<Text fontSize={"sm"}>
+					<Text fontSize={"md"}>
 					"You are special. Your smile, kindness, and compassion drew me in. You're the one I want to spend my life with, sharing joy, adventures, and building a family. Together, we'll face challenges, triumph, and create lasting memories. I promise to love you wholeheartedly, every day till infinity"
 					</Text>
 					<Text textAlign="end" fontStyle={"italic"} fontSize={"lg"}>

@@ -79,12 +79,12 @@ const TheCouple = () => {
 							Kolade Adetoyinbo
 						</Heading>
 						<Text fontSize={"md"} letterSpacing={"wide"}>
-							He&apos;s quick, responsible, affectionate and perhaps a little too bossy. Which isn&apos;t out of the ordinary for
-							someone with his position.
+						My Sweet sweet Akolade… Olowo Ori mi …My Everything wrapped in One Being.<br />
+						Thank you for being a home that makes me feel comfortable, safe , happy, lots of Laughters. You are so loving, dependable, caring, thoughtful, best friend, My big-headed sugar zaddy….. At every Seasons ahead, I would choose you over and over again, God by our side.
+						<br/>I love you so much ( more than chocolate ice cream)🤍
 						</Text>
 					</Flex>
 				</Flex>
-				{/* <ChakraImage src={flower1.src} position="absolute" bottom={0} right={0} /> */}
 			</Flex>
 		</Flex>
 	);
