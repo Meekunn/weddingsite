@@ -1,7 +1,10 @@
-import { Stack, Flex, Heading, Image, Text, Box, Button } from "@chakra-ui/react";
+import { Stack, Flex, Heading, Image, Text, Box, Button, useDisclosure } from "@chakra-ui/react";
 import flowerPattern from "../../assets/design.svg";
+import FormModal from "@components/formModal";
 
 const Gifts = () => {
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	
 	return (
 		<Stack p={6} gap={4}>
 			<Flex direction="column" gap={3} align="center" p={8}>
@@ -44,6 +47,7 @@ const Gifts = () => {
 							bg: "#2d3a4a",
 							color: "whiteAlpha.900",
 						}}
+						onClick={onOpen}
 					>
 						Random Airtime
 					</Button>
@@ -81,6 +85,7 @@ const Gifts = () => {
 					</Button>
 				</Flex>
 			</Flex>
+			<FormModal {...{ isOpen, onClose, onOpen }} />
 		</Stack>
 	);
 };

@@ -1,3 +1,4 @@
+import Navbar from "@components/Navbar";
 import { Providers } from "./providers";
 
 export const metadata = {
@@ -9,7 +10,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body suppressHydrationWarning={true}>
-				<Providers>{children}</Providers>
+				<Providers>
+					<Navbar />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);

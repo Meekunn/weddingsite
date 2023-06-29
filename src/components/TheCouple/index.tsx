@@ -1,13 +1,28 @@
 import { Box, Flex, Heading, Text, Image as ChakraImage } from "@chakra-ui/react";
 import Image from "next/image";
 import flowerPattern from "../../assets/design.svg";
-import bride from "../../assets/bride.jpg";
-import groom from "../../assets/groom.jpg";
-import flower1 from "../../assets/flower.png";
+import bride from "@assets/COD_3608.jpg";
+import groom from "@assets/COD_3603.jpg";
+import flower1 from "@assets/flower.png";
 
 const TheCouple = () => {
 	return (
-		<Flex id="couple" p={8} direction={"column"} gap={"4.5rem"} position={"relative"}>
+		<Flex id="couple" p={8} direction={"column"} position="relative" gap={"4.5rem"}
+			sx={{
+				_after: {
+					content: "''",
+					bgImage: `url(${flower1.src})`,
+					bgRepeat: "no-repeat",
+					bgSize: "cover",
+					bgPosition: "center",
+					position: "absolute",
+					height: flower1.height,
+					width: flower1.width,
+					right: 0,
+					bottom: 0,
+				}
+			}}
+		>
 			<Flex direction={"column"} gap={2} pt={4} align={"center"}>
 				<Heading as="h2" fontSize={"5xl"}>
 					The Couple
@@ -23,42 +38,42 @@ const TheCouple = () => {
 				>
 					<Flex direction="column" gap={6}>
 						<Text color={"#edce6f"} fontSize={"xl"} letterSpacing="wide">
-							"From that very first moment, we knew our connection was extraordinary, a love story meant to be cherished forever."
+							"Love is a beautiful thing"
+						</Text>
+						<Text fontSize={"md"} letterSpacing={"wide"}>
+							1 Cor 13:13<br />
+							<br />
+							And now these three remain: faith, hope and love. But the greatest of these is love.
 						</Text>
 						<Box
-							borderRadius="30px"
-							width="350px"
-							height="350px"
-							position="relative"
 							sx={{
 								img: {
 									borderRadius: "30px",
 								},
 							}}
 						>
-							<Image src={bride} alt={"Bride"} fill priority={true} placeholder="blur" sizes="350px" />
+							<Image src={bride} alt={"Bride"} sizes="350px" />
 						</Box>
 						<Heading as="h3" fontSize={"3xl"}>
 							Ayomikun Adeleye
 						</Heading>
 						<Text fontSize={"md"} letterSpacing={"wide"}>
-							She&apos;s dedicated, dependable, elegant and perhaps a little too anxious. This isn&apos;t surprising considering
-							for someone with her position.
+							She's dedicated, dependable, elegant, ambitious and a true believer. I call her my sweet Baby Girl, My Olori Laafin Kolade, My heartbeat, My best friend.<br />
+							.<br />
+							.<br />
+							wait... all that no complete if i no mention say, she dey get coconut head sometimes sha 😂.<br />
+							I love you so much my darling, and I am exicted to be taking this next step with you.
 						</Text>
 					</Flex>
 					<Flex direction="column" gap={4} zIndex={10}>
 						<Box
-							borderRadius="30px"
-							width="350px"
-							height="350px"
-							position="relative"
 							sx={{
 								img: {
 									borderRadius: "30px",
 								},
 							}}
 						>
-							<Image src={groom} alt={"Bride"} fill priority={true} placeholder="blur" sizes="350px" />
+							<Image src={groom} alt={"Groom"} sizes="350px" />
 						</Box>
 						<Heading as="h3" fontSize={"3xl"}>
 							Kolade Adetoyinbo
@@ -69,7 +84,7 @@ const TheCouple = () => {
 						</Text>
 					</Flex>
 				</Flex>
-				<ChakraImage src={flower1.src} position="absolute" bottom={0} right={0} />
+				{/* <ChakraImage src={flower1.src} position="absolute" bottom={0} right={0} /> */}
 			</Flex>
 		</Flex>
 	);
