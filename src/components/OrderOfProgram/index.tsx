@@ -3,9 +3,7 @@ import { BsBookmarkHeartFill } from "react-icons/bs";
 import flowerPattern from "../../assets/design.svg";
 import flower3 from "../../assets/flower3.png";
 import "./order_of_program.scss";
-// import { Gochi_Hand } from "next/font/google";
-
-// const gochi_Hand = Gochi_Hand({ weight: "400", subsets: ["latin"] });
+import programmes from "./programmes";
 
 const OrderOfProgram = () => {
 	return (
@@ -22,119 +20,23 @@ const OrderOfProgram = () => {
 						<Image src={flowerPattern.src} w="200px" />
 					</Flex>
 				</Flex>
-				<Flex direction="column">
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Something something something</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
-					<Flex
-						className="program_list"
-						position="relative"
-						borderLeft={1}
-						borderLeftColor={"brand.100"}
-						borderLeftStyle={"solid"}
-						direction={"column"}
-						gap={3}
-						px={8}
-						py={2}
-					>
-						<Text fontSize={"lg"} fontStyle={"italic"}>
-							8: 30am
-						</Text>
-						<Text fontSize={"lg"}>Prayer</Text>
-					</Flex>
+				<Flex direction="column" gap={4}>
+					{programmes.map((programme, index) => (
+						<Flex
+							key={index}
+							className="program_list"
+							position="relative"
+							borderLeft={1}
+							borderLeftColor={"brand.100"}
+							borderLeftStyle={"solid"}
+							direction={"column"}
+							gap={3}
+							px={8}
+							py={2}
+						>
+							<Text fontSize={"lg"}>{programme}</Text>
+						</Flex>
+					))}
 				</Flex>
 			</Stack>
 			<Image src={flower3.src} position={"absolute"} right={0} top="40%" />
