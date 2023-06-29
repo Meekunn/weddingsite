@@ -38,7 +38,12 @@ const TheCouple = () => {
 				>
 					<Flex direction="column" gap={6}>
 						<Text color={"#edce6f"} fontSize={"xl"} letterSpacing="wide">
-							"From that very first moment, we knew our connection was extraordinary, a love story meant to be cherished forever."
+							"Love is a beautiful thing"
+						</Text>
+						<Text fontSize={"md"} letterSpacing={"wide"}>
+							1 Cor 13:13<br />
+							<br />
+							And now these three remain: faith, hope and love. But the greatest of these is love.
 						</Text>
 						<Box
 							sx={{

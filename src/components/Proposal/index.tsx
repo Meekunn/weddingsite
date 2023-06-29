@@ -36,19 +36,7 @@ const Proposal = () => {
 				</Box>
 				<Flex direction={"column"} gap={8} zIndex={10}>
 					<Text fontSize={"sm"}>
-						"From the moment I met you, I knew that you were special. Your smile, your laugh, your kindness, and your compassion all drew me to you like a magnet. And as I got to know you better, I realized that you are not just a special person, but you are the person I want to spend the rest of my life with. You have brought so much joy into my life, and I want to share that joy with you forever.
-						<br />
-						I want to wake up every morning knowing that I am blessed to have you by my side.<br />
-						I want to experience life's adventures with you,<br />
-						explore the world with you,<br />
-						build a family with you,<br />
-						face life's challenges together,<br />
-						triumph together,<br />
-						support you in all your dreams and aspirations,<br />
-						and create memories that will last a lifetime. <br />
-
-All mentioned above could have been enough, then I remember the book of 1 Cor 13 made it clear that, if all do all, but I have not loved, it’s all void.
-Hence, I want to love you with all my heart, every day for the rest of my life."
+					"You are special. Your smile, kindness, and compassion drew me in. You're the one I want to spend my life with, sharing joy, adventures, and building a family. Together, we'll face challenges, triumph, and create lasting memories. I promise to love you wholeheartedly, every day till infinity"
 					</Text>
 					<Text textAlign="end" fontStyle={"italic"} fontSize={"lg"}>
 						- Kolade
