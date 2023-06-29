@@ -2,14 +2,14 @@ import { Flex, Box, Stack, Link } from "@chakra-ui/react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import "./active_link.scss";
 
-const DesktopNav = ({ isScrolled }: INavbar) => {
+const 	DesktopNav = ({ headerOutOfView }: INavbar) => {
 	return (
 		<Stack direction={"row"} spacing={4} px={4} h="100%">
 			<Flex align="center" justify="space-around">
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
-					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					color={headerOutOfView ? "#2d3a4a" : "#fffdf9"}
 					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
@@ -18,7 +18,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					to="home"
 					spy={true}
 					smooth={true}
-					fontWeight={isScrolled ? "medium" : "semibold"}
+					fontWeight={headerOutOfView ? "medium" : "semibold"}
 					duration={500}
 					className="navlinks"
 				>
@@ -27,7 +27,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
-					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					color={headerOutOfView ? "#2d3a4a" : "#fffdf9"}
 					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
@@ -37,7 +37,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
-					fontWeight={isScrolled ? "medium" : "semibold"}
+					fontWeight={headerOutOfView ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Couple
@@ -45,7 +45,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
-					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					color={headerOutOfView ? "#2d3a4a" : "#fffdf9"}
 					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
@@ -55,7 +55,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
-					fontWeight={isScrolled ? "medium" : "semibold"}
+					fontWeight={headerOutOfView ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Order of Program
@@ -63,7 +63,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
-					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					color={headerOutOfView ? "#2d3a4a" : "#fffdf9"}
 					_hover={{
 						fontWeight: 600,
 					}}
@@ -72,7 +72,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
-					fontWeight={isScrolled ? "medium" : "semibold"}
+					fontWeight={headerOutOfView ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Dates
@@ -80,7 +80,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 				<Link
 					as={ScrollLink}
 					textDecoration={"none !important"}
-					color={isScrolled ? "#2d3a4a" : "#fffdf9"}
+					color={headerOutOfView ? "#2d3a4a" : "#fffdf9"}
 					px={{ md: 4, lg: 8 }}
 					_hover={{
 						fontWeight: 600,
@@ -90,7 +90,7 @@ const DesktopNav = ({ isScrolled }: INavbar) => {
 					spy={true}
 					smooth={true}
 					duration={500}
-					fontWeight={isScrolled ? "medium" : "semibold"}
+					fontWeight={headerOutOfView ? "medium" : "semibold"}
 					className="navlinks"
 				>
 					Contact

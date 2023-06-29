@@ -1,9 +1,8 @@
 interface INavbar {
-	isScrolled: boolean;
+	headerOutOfView: boolean;
 }
 
 interface IMobileNavbar {
-	isScrolled: boolean;
 	isOpen: boolean;
-	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+	onToggle: () => void;
 }
