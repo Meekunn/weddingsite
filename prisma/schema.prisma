@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_URL")
+}
+
+enum GOODIES_STRATEGY_ENUM {
+  RANDOM
+  EQUAL
+}
+
+enum GOODIES_STATUS_ENUM {
+  ACTIVE
+  PENDING
+  EXPIRED
+}
+
+model Goodies {
+  id          String                @id @default(uuid())
+  amount      String
+  quantity    Int
+  strategy    GOODIES_STRATEGY_ENUM
+  status      GOODIES_STATUS_ENUM
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  expiresAt   DateTime
+  allocations Allocation[]
+}
+
+enum ALLOCATION_STATUS_ENUM {
+  CLAIMED
+  UNCLAIMED
+}
+
+model Allocation {
+  id             String                 @id @default(uuid())
+  goodieId       String
+  goodie         Goodies                @relation(fields: [goodieId], references: [id])
+  amount         String
+  position       Int
+  status         ALLOCATION_STATUS_ENUM
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+  expiresAt      DateTime
+  AllocationUser AllocationUser?
+}
+
+model AllocationUser {
+  id           String     @id @default(uuid())
+  phone        String
+  name         String
+  allocationId String     @unique
+  allocation   Allocation @relation(fields: [allocationId], references: [id])
+  fw_res       Json?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
