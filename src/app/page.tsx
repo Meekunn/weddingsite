@@ -16,7 +16,7 @@ export default function Home() {
 			<Proposal />
 			<OrderOfProgram />
 			{/* <Details /> */}
-			<Gifts />
+			{/* <Gifts /> */}
 			<Contact />
 			<Footer />
 		</>

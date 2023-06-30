@@ -2,6 +2,7 @@ import { Stack, Flex, Heading, Image, Icon, Box, Text } from "@chakra-ui/react";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 import flowerPattern from "../../assets/design.svg";
 import flower3 from "../../assets/flower3.png";
+import resizeList from '@assets/resized_list.png'
 import "./order_of_program.scss";
 import programmes from "./programmes";
 
@@ -24,7 +25,6 @@ const OrderOfProgram = () => {
                     {programmes.map((programme, index) => (
                         <Flex
                             key={index}
-                            className="program_list"
                             position="relative"
                             borderLeft={1}
                             borderLeftColor={"brand.100"}
@@ -33,6 +33,15 @@ const OrderOfProgram = () => {
                             gap={3}
                             px={8}
                             py={2}
+							sx={{
+								_before: {
+									content: `url(${resizeList.src})`,
+									height: "30px",
+									position: "absolute",
+									left: "-15px",
+									width: "30px",
+								}
+							}}
                         >
                             <Text fontSize={"lg"}>{programme}</Text>
                         </Flex>
