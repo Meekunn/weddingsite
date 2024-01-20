@@ -12,7 +12,7 @@ const Footer = () => {
 			borderTopColor={"brand.200"}
 			py={2}
 		>
-			<Text fontSize={"md"}>Copyright &copy;AyoAde'23</Text>
+			<Text fontSize={"md"}>Copyright &copy;AyoAde23</Text>
 		</Flex>
 	);
 };

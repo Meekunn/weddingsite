@@ -1,8 +1,10 @@
-import { Box, Flex, Heading, Icon, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Image as ChakraImage, Stack, Text } from "@chakra-ui/react";
 import { GiCutDiamond } from "react-icons/gi";
 import proposalBg from "../../assets/proposal-background.png";
 import flower2 from "../../assets/flower2.png";
 import flowerPattern from "../../assets/design.svg";
+import ProposalImage from "@assets/COD_3616.jpeg";
+import Image from "next/image";
 
 const style = {
 	backgroundImage: `url(${proposalBg.src})`,
@@ -21,18 +23,27 @@ const Proposal = () => {
 					<Heading as="h2" fontSize={"5xl"}>
 						The Proposal
 					</Heading>
-					<Image src={flowerPattern.src} w="200px" />
+					<ChakraImage src={flowerPattern.src} w="200px" />
 				</Flex>
-				<Flex direction={"column"} gap={8} w={"70%"} zIndex={10}>
-					<Text textAlign={"center"} fontSize={"xl"}>
-						"I could walk forever and a mile with you. Would you like to walk with me?”
+				<Box
+					sx={{
+						img: {
+							borderRadius: "30px",
+						}
+					}}
+				>
+					<Image src={ProposalImage} alt={"Groom"} sizes="350px" />
+				</Box>
+				<Flex direction={"column"} gap={8} zIndex={10}>
+					<Text fontSize={"md"}>
+					"You are special. Your smile, kindness, and compassion drew me in. You're the one I want to spend my life with, sharing joy, adventures, and building a family. Together, we'll face challenges, triumph, and create lasting memories. I promise to love you wholeheartedly, every day till infinity"
 					</Text>
-					<Text textAlign={"center"} fontStyle={"italic"} fontSize={"lg"}>
-						-Mr. Romantic
+					<Text textAlign="end" fontStyle={"italic"} fontSize={"lg"}>
+						- Kolade
 					</Text>
 				</Flex>
 			</Flex>
-			<Image src={flower2.src} position={"absolute"} bottom={0} left={0} />
+			<ChakraImage src={flower2.src} position={"absolute"} bottom={0} left={0} />
 		</Stack>
 	);
 };

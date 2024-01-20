@@ -15,7 +15,7 @@ const HomeSection = () => {
 	}`;
 
 	const goToNext = () => {
-		const nextSection = document.getElementById("how");
+		const nextSection = document.getElementById("couple");
 		if (nextSection) {
 			nextSection.scrollIntoView({ behavior: "smooth" });
 		}
@@ -36,11 +36,10 @@ const HomeSection = () => {
 			>
 				<Flex gap={4} direction={"column"} align={"center"}>
 					<Heading as="h1" fontSize={{ base: "5xl", md: "6xl", xl: "7xl" }} letterSpacing={"wide"} textAlign={"center"}>
-						Ayomikun & Kolade
+						Ayomikun<br/>&<br/>Kolade
 					</Heading>
 					<Image src={flowerPattern.src} w="250px" />
-					<Text fontSize={"xl"}> are getting married on</Text>
-					<Text fontSize={"xl"}>01.07.2023</Text>
+					<Text fontSize={"xl"}>Together Forever</Text>
 				</Flex>
 				<Stack
 					fontSize={"2xl"}
@@ -50,7 +49,7 @@ const HomeSection = () => {
 						},
 					}}
 					animation={`${nextSectionAnim} 2s 1.5s infinite alternate`}
-					onClick={() => goToNext()}
+					onClick={goToNext}
 				>
 					<GiSelfLove />
 					<RiArrowDownSLine />

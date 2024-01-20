@@ -1,6 +1,7 @@
-import { Box, Flex, IconButton } from "@chakra-ui/react";
+"use client"
+import { Box, Flex, IconButton, useDisclosure } from "@chakra-ui/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { GrClose } from "react-icons/gr";
 import blackLogo from "../../assets/black_logo.png";
 import whiteLogo from "../../assets/white_logo.png";
@@ -9,48 +10,74 @@ import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-    // const { isOpen, onToggle } = useDisclosure();
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const { isOpen, onToggle } = useDisclosure();
+    const [headerOutOfView, setHeaderOutOfView] = useState(false);
+    const [isScrollUp, setIsScrollUp] = useState(true);
+    const lastScrollY = useRef(0);
+
+    const scrolledFunc = useCallback(() => {
+        if (headerOutOfView) {
+        const scrollY = window.scrollY;
+        if (scrollY < 150) return setIsScrollUp(true);
+
+        if (scrollY < lastScrollY.current) {
+            if (!isScrollUp) setIsScrollUp(true);
+        } else {
+            if (isScrollUp) setIsScrollUp(false);
+        }
+        lastScrollY.current = scrollY <= 0 ? 0 : scrollY;
+        }
+    }, [headerOutOfView, isScrollUp]);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const isTop = window.scrollY === 0; // Check if user has scrolled to the top of the page
-            setIsScrolled(!isTop); // Update the state based on scroll position
-        };
-        window.addEventListener("scroll", handleScroll);
+        lastScrollY.current = window.scrollY;
+        window.addEventListener('scroll', scrolledFunc);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener('scroll', scrolledFunc);
         };
+    }, [scrolledFunc]);
+
+    useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+        (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return setHeaderOutOfView(true);
+            setHeaderOutOfView(false);
+        });
+        },
+        { rootMargin: '-150px 0px 0px 0px' }
+    );
+    const target = document.getElementById('home');
+    if (target) {
+        headerObserver.observe(target);
+    }
+    return () => {
+        if (target) headerObserver.unobserve(target);
+    };
     }, []);
 
     return (
-        <Box position="fixed" w="100%" zIndex={"2000"}>
+        <Box position="fixed" zIndex={1000} w="100%">
             <Flex
                 p={4}
                 px={6}
                 align={"center"}
                 minH={"60px"}
                 borderBottom={1}
-                borderColor={isScrolled ? "brand.100" : "transparent"}
+                borderColor={headerOutOfView ? "brand.100" : "transparent"}
                 borderStyle={"solid"}
-                bg={isScrolled ? "#fffdf9" : "transparent"}
+                bg={headerOutOfView ? "#fffdf9" : "transparent"}
+                
             >
                 <Flex flex={{ base: 1 }} justify={{ base: "flex-start", md: "space-between" }} align="center">
-                    <Image src={isScrolled ? blackLogo : whiteLogo} height={isScrolled ? 50 : 60} alt="Wedding Logo" />
-                    {/* <Heading
-						color={isScrolled ? "#2d3a4a" : "#fffdf9"}
-						textAlign={useBreakpointValue({ base: "center", md: "left" })}
-					>
-						A&K
-					</Heading> */}
+                    <Image src={headerOutOfView ? blackLogo : whiteLogo} height={headerOutOfView ? 50 : 60} alt="Wedding Logo" />
                     <Flex display={{ base: "none", md: "flex" }} align="center" gap={{ md: 2, lg: 4, xl: 6 }} ml={10}>
-                        <DesktopNav isScrolled={isScrolled} />
+                        <DesktopNav headerOutOfView={headerOutOfView} />
                     </Flex>
                 </Flex>
                 <Flex flex={{ base: 1, md: "auto" }} mr={2} display={{ base: "flex", md: "none" }} justify={"flex-end"}>
                     <IconButton
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={onToggle}
                         icon={isOpen ? <GrClose /> : <Hamburger />}
                         variant={"ghost"}
                         aria-label="toggle nav"
@@ -58,9 +85,7 @@ const Navbar = () => {
                     />
                 </Flex>
             </Flex>
-            {/* <Slide in={isOpen} direction="right" style={slideStyle}> */}
-            <MobileNav isScrolled={isScrolled} isOpen={isOpen} setIsOpen={setIsOpen} />
-            {/* </Slide> */}
+            <MobileNav {...{ isOpen, onToggle }} />
         </Box>
     );
 };
