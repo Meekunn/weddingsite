@@ -1,7 +1,7 @@
 const fonts = {
-	heading: "var(--font-cormorant_upright)",
-	body: "var(--font-poppins)",
-	love_light: "var(--font-love_light)",
+    heading: "'Cormorant Upright', sans-serif",
+    body: "'Poppins', sans-serif",
+    love_light: "'Love Light', sans-serif"
 };
 
 export default fonts;
