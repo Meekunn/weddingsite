@@ -4,18 +4,17 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "prisma generate && next build",
+        "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "migrate:run": "prisma migrate deploy",
-        "migrate:dev": "prisma migrate dev --name init",
-        "migrate:load": "prisma migrate dev",
-        "migrate:create": "prisma migrate dev --create-only"
+        "lint": "next lint"
     },
     "dependencies": {
         "@chakra-ui/react": "^2.6.1",
         "@emotion/react": "^11.11.0",
         "@emotion/styled": "^11.11.0",
+        "@fontsource/cormorant-upright": "^5.0.8",
+        "@fontsource/love-light": "^5.0.18",
+        "@fontsource/poppins": "^5.0.8",
         "@prisma/client": "4.15.0",
         "@t3-oss/env-nextjs": "^0.4.1",
         "@types/node": "20.2.1",
@@ -34,8 +33,8 @@
         "react-scroll": "^1.8.9",
         "react-hook-form": "^7.45.1",
         "sass": "^1.62.1",
+        "sharp": "^0.33.2",
         "typescript": "5.0.4",
         "zod": "^3.21.4"
-    },
-    "devDependencies": {}
+    }
 }
